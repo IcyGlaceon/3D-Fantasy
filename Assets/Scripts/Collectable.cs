@@ -10,12 +10,12 @@ public class Collectable : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            OnPickup(collision.gameObject);
+            OnPickup(collision.gameObject); 
         }
     }
 
 
-    virtual public void OnPickup(GameObject gameObject)
+    virtual public void OnPickup(GameObject player)
     {
 
     }

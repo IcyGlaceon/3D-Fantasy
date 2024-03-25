@@ -7,15 +7,9 @@ public class Player : MonoBehaviour
     public int money = 0;
     public int health = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnDeath()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (money < 1000) money = 0;
+        else money -= 1000;
     }
 }

@@ -14,7 +14,7 @@ public class MeleeAttack : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0) && CanAttack)
+        if (Input.GetButtonDown("Fire1") && CanAttack)
         {
             Attack();
         }

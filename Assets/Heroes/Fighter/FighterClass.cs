@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WizardClass : MonoBehaviour
+public class FighterClass : MonoBehaviour
 {
-    public bool fireAbility = false;
-
-
+    public bool shieldAbility = false; //can hold ability button to pivot and redirect light 
 
     public void Update()
     {
@@ -23,5 +21,4 @@ public class WizardClass : MonoBehaviour
             currentInteractable.GetComponent<Interactable>().OnInteract();
         }
     }
-
 }

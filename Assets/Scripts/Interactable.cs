@@ -29,31 +29,45 @@ public class Interactable : MonoBehaviour
     {
         switch (required)
         {
-            case Abilites.Lightning:
+            case Abilites.Lightning: //Wizard
                 if (other.GetComponent<WizardClass>() != null)
                 {
                     Debug.Log("Lightning");
-                    other.GetComponent<Player>().CanAbility = true;
+                    other.GetComponent<Player>().canUseAbility = true;
                 }
                 break;
-            case Abilites.Fire:
+            case Abilites.Fire: //Wizard
                 if (other.GetComponent<WizardClass>() != null)
                 {
-                    if (other.GetComponent<WizardClass>().hasFire == true)
+                    if (other.GetComponent<WizardClass>().fireAbility == true)
                     {
                         Debug.Log("Fire");
-                        other.GetComponent<Player>().CanAbility = true;
+                        other.GetComponent<Player>().canUseAbility = true;
                     }
                     else Debug.Log("Wizard but fireless");
                 }
                 break;
-            case Abilites.Strength:
+            case Abilites.Strength: //Fighter
+                if(other.GetComponent<FighterClass>() != null)
+                {
+                    Debug.Log("STRONG");
+                    other.GetComponent<Player>().canUseAbility = true;
+                }
                 break;
-            case Abilites.Agility:
+            case Abilites.Shield: //Fighter
+                if (other.GetComponent<FighterClass>() != null)
+                {
+                    if (other.GetComponent<FighterClass>().shieldAbility == true)
+                    {
+                        Debug.Log("Shield");
+                        other.GetComponent<Player>().canUseAbility = true;
+                    }
+                    else Debug.Log("Fighter shieldless");
+                }
                 break;
-            case Abilites.Shield:
+            case Abilites.Agility: //Ranger?
                 break;
-            case Abilites.Lockpick:
+            case Abilites.Lockpick: //Rouge
                 break;
 
         }
@@ -64,7 +78,7 @@ public class Interactable : MonoBehaviour
         if (other.tag == "Player")
         {
             other.GetComponent<Player>().interactable = null;
-            other.GetComponent<Player>().CanAbility = false;
+            other.GetComponent<Player>().canUseAbility = false;
         }
     }
 

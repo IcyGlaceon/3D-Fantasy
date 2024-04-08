@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public int money = 0;
     public int health = 0;
     public GameObject interactable;
-    public bool CanAbility = false;
+    public bool canUseAbility = false;
 
 
     public void OnDeath()

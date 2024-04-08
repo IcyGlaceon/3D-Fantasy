@@ -41,7 +41,7 @@ public class Movement : MonoBehaviour
          if (playerInput.actions["Jump"].IsPressed() && Physics.Raycast(groundCheckTransform.transform.position, Vector3.down, 0.1f))
          {
              direction.y = Mathf.Sqrt(jumpPower * -4 * gravity);
-             Debug.Log("Ground");
+             //Debug.Log("Ground");
          }
 
          //makes the player rotate when moving left or right

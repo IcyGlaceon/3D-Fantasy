@@ -8,7 +8,8 @@ public class FighterClass : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetButtonDown("Ability")) Ability();
+        //if (Input.GetButtonDown("Ability")) Ability();
+        if (Input.GetButtonDown("Ability")) Strength();
     }
 
     public void Ability()
@@ -20,5 +21,10 @@ public class FighterClass : MonoBehaviour
         {
             currentInteractable.GetComponent<Interactable>().OnInteract();
         }
+    }
+
+    public void Strength()
+    {
+
     }
 }

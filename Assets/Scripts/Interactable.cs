@@ -30,37 +30,36 @@ public class Interactable : MonoBehaviour
         switch (required)
         {
             case Abilites.Lightning: //Wizard
-                if (other.GetComponent<WizardClass>() != null)
+                if (other.GetComponentInChildren<WizardClass>() != null)
                 {
                     Debug.Log("Lightning");
-                    other.GetComponent<Player>().canUseAbility = true;
+                    other.GetComponentInChildren<Player>().canUseAbility = true;
                 }
                 break;
             case Abilites.Fire: //Wizard
-                if (other.GetComponent<WizardClass>() != null)
+                if (other.GetComponentInChildren<WizardClass>() != null)
                 {
-                    if (other.GetComponent<WizardClass>().fireAbility == true)
+                    if (other.GetComponentInChildren<WizardClass>().fireAbility == true)
                     {
                         Debug.Log("Fire");
-                        other.GetComponent<Player>().canUseAbility = true;
+                        other.GetComponentInChildren<Player>().canUseAbility = true;
                     }
                     else Debug.Log("Wizard but fireless");
                 }
                 break;
             case Abilites.Strength: //Fighter
-                if(other.GetComponent<FighterClass>() != null)
+                if(other.GetComponentInChildren <FighterClass>() != null)
                 {
-                    Debug.Log("STRONG");
-                    other.GetComponent<Player>().canUseAbility = true;
+                    other.GetComponentInChildren<Player>().canUseAbility = true;
                 }
                 break;
             case Abilites.Shield: //Fighter
-                if (other.GetComponent<FighterClass>() != null)
+                if (other.GetComponentInChildren<FighterClass>() != null)
                 {
-                    if (other.GetComponent<FighterClass>().shieldAbility == true)
+                    if (other.GetComponentInChildren<FighterClass>().shieldAbility == true)
                     {
                         Debug.Log("Shield");
-                        other.GetComponent<Player>().canUseAbility = true;
+                        other.GetComponentInChildren<Player>().canUseAbility = true;
                     }
                     else Debug.Log("Fighter shieldless");
                 }

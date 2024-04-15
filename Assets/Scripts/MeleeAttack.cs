@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MeleeAttack : MonoBehaviour
 {
@@ -9,12 +10,19 @@ public class MeleeAttack : MonoBehaviour
     public float AttackCooldown = 1.0f;
     public bool IsAttacking = false;
 
+    private PlayerInput playerInput;
+
     // Audio Sources
     public AudioClip AttackSound;
 
+    private void Start()
+    {
+        playerInput = GetComponentInParent<PlayerInput>();
+    }
+
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && CanAttack)
+        if (playerInput.actions["Fire"].IsPressed() && CanAttack)
         {
             Attack();
         }

@@ -20,10 +20,11 @@ public class ShieldCollectible : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            Debug.Log("AH");
             other.GetComponentInChildren<FighterClass>().shieldAbility = true;
-            //other.GetComponent<FighterClass>().shieldAbility = true;
 
+            transform.SetParent(other.transform.Find("ShieldHolder"));
+
+            transform.SetPositionAndRotation(other.transform.Find("ShieldHolder").position, Quaternion.Euler(0, 0, 0));
         }
     }
 }

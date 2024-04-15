@@ -21,17 +21,34 @@ public class FighterClass : MonoBehaviour
         GameObject currentInteractable = GetComponentInParent<Player>().interactable;
         bool CanAbility = GetComponentInParent<Player>().canUseAbility;
         Debug.Log("Pressed the button");
+        if (strengthAbility)
+        {
+            Strength(currentInteractable, CanAbility);
+        }
+
+        if (shieldAbility)
+        {
+            //pivot in place
+
+
+        }
+        
+    }
+
+
+    public void Strength(GameObject currentInteract, bool AbilityUsage)
+    {
         if (!strengthHolding)
         {
-            if (CanAbility)
+            if (AbilityUsage)
             {
-                currentInteractable.transform.parent.SetParent(transform);
+                currentInteract.transform.parent.SetParent(transform);
                 strengthHolding = true;
             }
         }
         else
         {
-            currentInteractable.transform.parent.SetParent(null);
+            currentInteract.transform.parent.SetParent(null);
             strengthHolding = false;
         }
     }

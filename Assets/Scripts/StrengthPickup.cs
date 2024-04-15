@@ -28,7 +28,7 @@ public class StrengthPickup : MonoBehaviour
     {
         if(other.gameObject.GetComponent<Interactable>() != null && other.gameObject.transform == null)
         {
-            Debug.Log("AH");
+            Debug.Log("Object in strength zone");
         }
 
         if (other.tag == "Player")

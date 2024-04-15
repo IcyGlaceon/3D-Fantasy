@@ -1,5 +1,5 @@
 {
-    "name": "3D Fantasy",
+    "name": "PlayerInputs",
     "maps": [
         {
             "name": "Player",
@@ -27,6 +27,15 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "76d9ed72-611a-4fe2-b1e7-692d1337e706",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Ability",
+                    "type": "Button",
+                    "id": "194f3a6b-4dda-4aa7-b0f3-494819c66048",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -240,6 +249,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "55fdae81-cfcb-4fa2-aa70-377a051370f6",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Ability",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

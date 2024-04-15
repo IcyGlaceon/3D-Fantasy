@@ -11,7 +11,7 @@ public class Money : Collectable
 
     public void OnSpawn()
     {
-
+        //:D
     }
 
     public override void OnPickup(GameObject player)

@@ -15,7 +15,7 @@ public class LightSource : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 100, 6))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 100))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
             Debug.Log("HIT");

@@ -26,7 +26,7 @@ public class StrengthPickup : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.GetComponent<Interactable>() != null && other.gameObject.transform == null)
+        if(other.gameObject.GetComponent<Interactable>() != null)
         {
             Debug.Log("Object in strength zone");
         }

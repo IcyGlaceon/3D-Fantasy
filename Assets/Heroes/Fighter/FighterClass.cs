@@ -16,7 +16,7 @@ public class FighterClass : MonoBehaviour
         playerInput = GetComponentInParent<PlayerInput>();
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         if (playerInput.actions["Ability"].IsPressed() && GetComponentInParent<Movement>().controller.velocity == Vector3.zero) Ability();
        
@@ -31,7 +31,8 @@ public class FighterClass : MonoBehaviour
         Debug.Log("Pressed the button");
         if (strengthAbility)
         {
-            Strength(currentInteractable, CanAbility);
+            GameObject strengthObj = currentInteractable;
+            Strength(currentInteractable, CanAbility, strengthObj);
         }
 
         if (shieldAbility)
@@ -44,7 +45,7 @@ public class FighterClass : MonoBehaviour
     }
 
 
-    public void Strength(GameObject currentInteract, bool AbilityUsage)
+    public void Strength(GameObject currentInteract, bool AbilityUsage, GameObject strengthObj)
     {
         if (!strengthHolding)
         {
@@ -56,7 +57,7 @@ public class FighterClass : MonoBehaviour
         }
         else
         {
-            currentInteract.transform.parent.SetParent(null);
+            strengthObj.transform.parent.SetParent(null);
             strengthHolding = false;
         }
     }

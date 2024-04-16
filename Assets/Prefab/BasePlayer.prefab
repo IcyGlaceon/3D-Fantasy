@@ -109,6 +109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shieldAbility: 0
   strengthAbility: 0
+  strengthHolding: 0
+  strengthObj: {fileID: 0}
 --- !u!114 &3053651056718523727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,7 +338,7 @@ MonoBehaviour:
   groundCheckTransform: {fileID: 1463104601018484357}
   jumpPower: 0.1
   gravity: -8.83
-  slowMovement: 40
+  slowMovement: 50
   turnSmoothTime: 0.1
 --- !u!114 &8119695956683316536
 MonoBehaviour:
@@ -454,7 +456,7 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 1f4b5b51-c75a-44cb-b01d-cb1831680ed0
     m_ActionName: UI/TrackedDeviceOrientation
-  m_NeverAutoSwitchControlSchemes: 1
+  m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1

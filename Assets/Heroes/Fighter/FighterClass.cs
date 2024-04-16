@@ -7,7 +7,9 @@ public class FighterClass : MonoBehaviour
 {
     public bool shieldAbility = false; //can hold ability button to pivot and redirect light 
     public bool strengthAbility = false;
-    bool strengthHolding = false; //checks if the player is holding a strength object
+    public bool strengthHolding = false; //checks if the player is holding a strength object
+
+    public GameObject strengthObj;
 
     private PlayerInput playerInput;
 
@@ -19,7 +21,6 @@ public class FighterClass : MonoBehaviour
     public void FixedUpdate()
     {
         if (playerInput.actions["Ability"].IsPressed() && GetComponentInParent<Movement>().controller.velocity == Vector3.zero) Ability();
-       
     }
 
     //current error that happens when moving and trying to place down the strenght object
@@ -31,27 +32,27 @@ public class FighterClass : MonoBehaviour
         Debug.Log("Pressed the button");
         if (strengthAbility)
         {
-            GameObject strengthObj = currentInteractable;
-            Strength(currentInteractable, CanAbility, strengthObj);
+            
+            Strength(CanAbility, strengthObj);
         }
 
-        if (shieldAbility)
+       /* if (shieldAbility)
         {
             //pivot in place
 
 
-        }
+        }*/
         
     }
 
 
-    public void Strength(GameObject currentInteract, bool AbilityUsage, GameObject strengthObj)
+    public void Strength(bool AbilityUsage, GameObject strengthObj)
     {
         if (!strengthHolding)
         {
             if (AbilityUsage)
             {
-                currentInteract.transform.parent.SetParent(transform);
+                strengthObj.transform.parent.SetParent(transform);
                 strengthHolding = true;
             }
         }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class StrengthPickup : MonoBehaviour
 {
+    Vector3 strZonePos;
+    bool Held = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,21 +23,26 @@ public class StrengthPickup : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.GetComponentInChildren<FighterClass>().strengthAbility = true; //lets the player use the strength ability while touching a strength object
+            //lets the player use the strength ability while touching a strength object
+            other.GetComponentInChildren<FighterClass>().strengthAbility = true;
+
+
+            other.GetComponentInChildren<FighterClass>().strengthObj = gameObject;
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.GetComponent<Interactable>() != null)
-        {
-            Debug.Log("Object in strength zone");
-        }
-
         if (other.tag == "Player")
         {
-            //other.GetComponentInChildren<FighterClass>().isInSrength = true; 
-           
+            Held = other.GetComponentInChildren<FighterClass>().strengthHolding;
+
+        }
+
+        if (other.gameObject.GetComponent<Interactable>() != null && !Held)
+        {
+            strZonePos = other.transform.position;
+            Debug.Log("Object in strength zone");
         }
     }
 
@@ -42,7 +50,7 @@ public class StrengthPickup : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            //other.GetComponentInChildren<FighterClass>().isInSrength = false;
+            transform.SetPositionAndRotation(strZonePos, transform.rotation);
         }
     }
 

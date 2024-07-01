@@ -339,7 +339,9 @@ MonoBehaviour:
   jumpPower: 0.1
   gravity: -8.83
   slowMovement: 50
+  speed: 20
   turnSmoothTime: 0.1
+  cameraTransform: {fileID: 0}
 --- !u!114 &8119695956683316536
 MonoBehaviour:
   m_ObjectHideFlags: 0

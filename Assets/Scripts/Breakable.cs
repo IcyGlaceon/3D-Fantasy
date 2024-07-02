@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Breakable : MonoBehaviour
 {
+    [SerializeField] private bool dropHealth = true;
+
     [SerializeField] public int value = 500;
     [SerializeField] public GameObject health;
     [SerializeField] public GameObject money;
@@ -13,7 +15,7 @@ public class Breakable : MonoBehaviour
         float spawnHealth = Random.value;
         money.GetComponent<Money>().value = value;
         Debug.Log(spawnHealth);
-        if (spawnHealth >= 0.75)
+        if (dropHealth && spawnHealth >= 0.75)
         {
             Instantiate(health);
         }

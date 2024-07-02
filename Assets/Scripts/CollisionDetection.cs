@@ -6,6 +6,7 @@ public class CollisionDetection : MonoBehaviour
 {
     [SerializeField] GameObject hitParticle;
     [SerializeField] MeleeAttack ma;
+    [SerializeField] bool fire = false;
 
 
     private void OnTriggerEnter(Collider other)

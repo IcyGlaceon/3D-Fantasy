@@ -337,9 +337,11 @@ MonoBehaviour:
   controller: {fileID: 8550842907144162741}
   groundCheckTransform: {fileID: 1463104601018484357}
   jumpPower: 0.1
-  gravity: -8.83
+  gravity: -9.83
   slowMovement: 50
+  speed: 10
   turnSmoothTime: 0.1
+  cameraTransform: {fileID: 0}
 --- !u!114 &8119695956683316536
 MonoBehaviour:
   m_ObjectHideFlags: 0

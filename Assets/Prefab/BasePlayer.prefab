@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2752065863314480595
 Transform:
   m_ObjectHideFlags: 0
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 8550842907144162741}
   groundCheckTransform: {fileID: 1463104601018484357}
-  jumpPower: 0.1
+  jumpPower: 1
   gravity: -8.83
   slowMovement: 50
   speed: 20

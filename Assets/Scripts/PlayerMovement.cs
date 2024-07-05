@@ -11,6 +11,9 @@ public class Movement : MonoBehaviour
 
     private PlayerInput playerInput;
 
+    InputAction moveAction;
+    InputAction jumpAction;
+
     public float jumpPower = 1f;
     public float gravity = -1f;
     public float slowMovement = 1f;
@@ -22,39 +25,65 @@ public class Movement : MonoBehaviour
     public Transform cameraTransform;
     float turnSmoothVelocity;
 
-    Vector3 direction = Vector3.zero;
+    Vector3 movement = Vector3.zero;
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
+        moveAction = playerInput.actions.FindAction("Move");
+        jumpAction = playerInput.actions.FindAction("Jump");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (controller.isGrounded)
+        PlayerMovement();
+    }
+
+    void PlayerMovement()
+    {
+        //Reads in movement input
+        Vector2 direction = moveAction.ReadValue<Vector2>();
+
+        movement = new Vector3(direction.x, 0, direction.y);
+
+        movement = cameraTransform.TransformDirection(movement);
+        movement *= speed * Time.deltaTime;
+
+        //Allows player to rotate
+        float targetAngle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+
+
+        if (direction.y == 1)
         {
-            direction = new Vector3(playerInput.actions["Move"].ReadValue<Vector2>().x, 0, playerInput.actions["Move"].ReadValue<Vector2>().y);
-
-            direction = cameraTransform.TransformDirection(direction);
-            direction.y = 0;
-
-            direction *= speed;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
         }
 
-        if (playerInput.actions["Jump"].IsPressed() && Physics.Raycast(groundCheckTransform.transform.position, Vector3.down, 0.1f))
+        if (targetAngle != 0)
         {
-            direction.y = Mathf.Sqrt(jumpPower * -4 * gravity);
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
         }
+        //
 
-        //makes the player rotate when moving left or right
-        float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-        transform.rotation = Quaternion.Euler(0f, angle, 0f);
+        //Does jumping
+        if (jumpAction.IsPressed() && Physics.Raycast(groundCheckTransform.transform.position, Vector3.down, 0.1f))
+        {
+            Jump();
+        }
+        //
 
-        //applys gravity
-        direction.y += gravity * Time.deltaTime;
+        //Apply Gravity
+        movement.y += gravity * Time.deltaTime;
 
-        controller.Move(direction * Time.deltaTime);
+
+        //Moves player
+        controller.Move(movement);
+    }
+
+    void Jump()
+    {
+        movement.y = Mathf.Sqrt(jumpPower * -4 * gravity);
     }
 }

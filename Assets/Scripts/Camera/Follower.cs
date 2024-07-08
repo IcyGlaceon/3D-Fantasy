@@ -29,6 +29,8 @@ public class Follower : MonoBehaviour
 
         Debug.Log(cam.transform.forward);
 
+        
+
 
         if (playerTransform.position.z >= path.m_Waypoints[8].position.z) Debug.Log("TURN");
 

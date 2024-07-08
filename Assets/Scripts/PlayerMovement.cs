@@ -45,8 +45,6 @@ public class Movement : MonoBehaviour
         //Reads in movement input
         Vector2 direction = moveAction.ReadValue<Vector2>();
 
-        
-
         movement = new Vector3(direction.x, 0, direction.y);
 
         movement = cameraTransform.TransformDirection(movement);

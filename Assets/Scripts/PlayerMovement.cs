@@ -45,10 +45,14 @@ public class Movement : MonoBehaviour
         //Reads in movement input
         Vector2 direction = moveAction.ReadValue<Vector2>();
 
+        
+
         movement = new Vector3(direction.x, 0, direction.y);
 
         movement = cameraTransform.TransformDirection(movement);
         movement *= speed * Time.deltaTime;
+
+        //Debug.Log(movement);
 
         //Allows player to rotate
         float targetAngle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;

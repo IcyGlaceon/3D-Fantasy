@@ -16,7 +16,7 @@ public class Money : Collectable
 
     public override void OnPickup(GameObject player)
     {
-        player.GetComponent<Player>().money += value;
+        player.GetComponentInParent<Player>().money += value;
         Destroy(gameObject);
     }
 

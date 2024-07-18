@@ -50,8 +50,6 @@ public class Movement : MonoBehaviour
         movement = cameraTransform.TransformDirection(movement);
         movement *= speed * Time.deltaTime;
 
-        //Debug.Log(movement);
-
         //Allows player to rotate
         float targetAngle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
 

@@ -7,6 +7,8 @@ using UnityEngine.Splines;
 public class Follower : MonoBehaviour
 {
     [SerializeField] Transform[] waypoints;
+    [SerializeField] CinemachineSmoothPath waypoint;
+
     [SerializeField] Transform playerTransform;
 
     public float speed = 5.0f;
@@ -17,23 +19,37 @@ public class Follower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentWaypointIndex < waypoints.Length)
+        if (currentWaypointIndex < waypoint.m_Waypoints.Length)
         {
+
+
+            /*Vector3 targetWaypoint = new Vector3()// waypoint.transform.TransformDirection(waypoint.m_Waypoints[currentWaypointIndex].position);
+            Vector3 directionToWaypoint = (targetWaypoint - transform.position).normalized;
+*/
+
             Transform targetWaypoint = waypoints[currentWaypointIndex];
-            Vector3 directionToWaypoint = (targetWaypoint.position - transform.position).normalized;
 
-  
-            Vector3 playerDirection = playerTransform.forward;
-            Vector3 desiredPosition = playerTransform.position - playerDirection * followDistance;
+            Vector3 direction = targetWaypoint.position - transform.position;
 
-            Vector3 movement = Vector3.MoveTowards(transform.position, desiredPosition, speed * Time.deltaTime);
-            transform.position = new Vector3(movement.x, transform.position.y, movement.z);
+            
 
-            if(Vector3.Distance(transform.position, targetWaypoint.position) < 0.1f)
+
+            // Check if we've reached the waypoint
+            if (Vector3.Distance(transform.position, targetWaypoint.position) < 0.1f)
             {
+                Debug.Log("HIT");
                 currentWaypointIndex++;
             }
+            else
+            {
+                transform.position += direction.normalized * speed * Time.deltaTime;
+            }
         }
+
+        // Follow the player at a fixed distance
+        Vector3 followPosition = playerTransform.position - playerTransform.forward * followDistance;
+        transform.position = new Vector3(followPosition.x, transform.position.y, followPosition.z);
+
 
 
         transform.LookAt(playerTransform);

@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -8,6 +9,9 @@ public class Movement : MonoBehaviour
 {
     public CharacterController controller;
     public GameObject groundCheckTransform;
+
+    [SerializeField] CinemachineSmoothPath waypoint;
+    [SerializeField] CinemachineVirtualCamera camera;
 
     private PlayerInput playerInput;
 
@@ -47,7 +51,8 @@ public class Movement : MonoBehaviour
 
         movement = new Vector3(direction.x, 0, direction.y);
 
-        movement = cameraTransform.TransformDirection(movement);
+
+        //movement = cameraTransform.TransformDirection(movement);
         movement *= speed * Time.deltaTime;
 
         //Allows player to rotate
@@ -76,6 +81,12 @@ public class Movement : MonoBehaviour
 
         //Apply Gravity
         movement.y += gravity * Time.deltaTime;
+
+        var dolly = camera.GetCinemachineComponent<CinemachineTrackedDolly>();
+
+        var wayWorld = waypoint.EvaluatePositionAtUnit((int)dolly.m_PathPosition + 1, CinemachinePathBase.PositionUnits.PathUnits);
+
+        transform.LookAt(wayWorld);
 
 
         //Moves player

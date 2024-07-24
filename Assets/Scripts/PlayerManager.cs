@@ -7,6 +7,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject character1;
     [SerializeField] private GameObject character2;
 
+    public GameObject currentCharacter;
+
     public int PlayerNumber = 1;
 
     //[SerializeField] private GameObject 
@@ -14,7 +16,7 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentCharacter = character1;
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class PlayerManager : MonoBehaviour
             character2.transform.position = character1.transform.position;
             character1.SetActive(false);
             character2.SetActive(true);
+            currentCharacter = character2;
             gameObject.GetComponent<Player>().className = character2.name;
             GetComponent<PlayerMovement>().characterController = character2.GetComponent<CharacterController>();
         }
@@ -38,6 +41,7 @@ public class PlayerManager : MonoBehaviour
             character1.transform.position = character2.transform.position;
             character2.SetActive(false);
             character1.SetActive(true);
+            currentCharacter = character1;
             gameObject.GetComponent<Player>().className = character1.name;
             GetComponent<PlayerMovement>().characterController = character1.GetComponent<CharacterController>();
 

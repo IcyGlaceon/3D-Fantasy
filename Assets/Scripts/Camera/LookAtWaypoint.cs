@@ -12,7 +12,6 @@ public class LookAtWaypoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -20,6 +19,13 @@ public class LookAtWaypoint : MonoBehaviour
     {
         var dolly = camera.GetCinemachineComponent<CinemachineTrackedDolly>();
 
-        transform.LookAt(waypoint.m_Waypoints[(int)dolly.m_PathPosition].position);
+        Vector3 position = waypoint.m_Waypoints[(int)dolly.m_PathPosition].position;
+
+        transform.InverseTransformVector(position);
+
+        transform.LookAt(position);
+
+
+        Debug.Log(waypoint.m_Waypoints[(int)dolly.m_PathPosition].position);
     }
 }

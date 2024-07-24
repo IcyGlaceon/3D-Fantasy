@@ -46,20 +46,28 @@ public class Movement : MonoBehaviour
 
     void PlayerMovement()
     {
+
         //Reads in movement input
         Vector2 direction = moveAction.ReadValue<Vector2>();
 
-        movement = new Vector3(direction.x, 0, direction.y);
+        Debug.Log(direction);
+
+        movement = new Vector3(camera.transform.forward.x * direction.x, 0, camera.transform.forward.z * direction.y);
 
 
-        //movement = cameraTransform.TransformDirection(movement);
+
+        //movement = new Vector3(direction.x, 0, direction.y);
+
+
+      //  movement = cameraTransform.TransformDirection(movement);
+
         movement *= speed * Time.deltaTime;
 
-        //Allows player to rotate
-        float targetAngle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+       /* //Allows player to rotate
+        float targetAngle = Mathf.Atan2(camera.transform.forward.x, camera.transform.forward.z) * Mathf.Rad2Deg;
 
 
-        if (direction.y == 1)
+        if (camera.transform.forward.z == 1)
         {
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
@@ -70,7 +78,7 @@ public class Movement : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
         }
-        //
+        //*/
 
         //Does jumping
         if (jumpAction.IsPressed() && Physics.Raycast(groundCheckTransform.transform.position, Vector3.down, 0.1f))
@@ -86,7 +94,7 @@ public class Movement : MonoBehaviour
 
         var wayWorld = waypoint.EvaluatePositionAtUnit((int)dolly.m_PathPosition + 1, CinemachinePathBase.PositionUnits.PathUnits);
 
-        transform.LookAt(wayWorld);
+        //transform.LookAt(wayWorld);
 
 
         //Moves player

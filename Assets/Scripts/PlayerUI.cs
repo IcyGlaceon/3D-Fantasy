@@ -11,11 +11,13 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI playerMoney;
     [SerializeField] private UnityEngine.UI.Image playerIcon;
     [SerializeField] private GameObject playerCharacter;
+    [SerializeField] private TextMeshProUGUI playerName;
 
     private void Update()
     {
         playerHealth.text = playerCharacter.GetComponent<Player>().health.ToString();
         playerMoney.text = playerCharacter.GetComponent<Player>().money.ToString();
+        playerMoney.text = playerCharacter.GetComponent<Player>().className.ToString();
     }
 
 

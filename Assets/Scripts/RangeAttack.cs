@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class RangeAttack : MonoBehaviour
 {
@@ -14,6 +16,10 @@ public class RangeAttack : MonoBehaviour
     private float AttackCooldown = 1.0f;
     [HideInInspector] public bool IsAttacking = false;
 
+    private RaycastHit targetHit = new RaycastHit();
+    Vector3 box = new Vector3(5f, 5f, 5f);
+    Vector3 baseTarget;
+
     private PlayerInput playerInput;
 
     // Audio Sources
@@ -22,6 +28,7 @@ public class RangeAttack : MonoBehaviour
     private void Start()
     {
         playerInput = GetComponentInParent<PlayerInput>();
+        baseTarget = TargetPOS.localPosition;
     }
 
     void Update()
@@ -30,6 +37,12 @@ public class RangeAttack : MonoBehaviour
         {
             Attack();
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(TargetPOS.position, box * 2);
     }
 
     public void Attack()
@@ -48,6 +61,16 @@ public class RangeAttack : MonoBehaviour
 
     public void SpawnProjectile()
     {
+        //Targetting testing
+        Physics.BoxCast(TargetPOS.position, box, transform.forward, out targetHit);
+        if (targetHit.collider && targetHit.collider.CompareTag("Breakable"))
+        {
+            TargetPOS.position = targetHit.transform.position;
+            Debug.Log("It hit: " + targetHit.collider.gameObject.name);
+            
+        }
+        //testing ends
+        
         Vector3 dir = TargetPOS.position - SpawnPosition.position;
 
         GameObject projectile = Instantiate(Projectile, SpawnPosition.position, Quaternion.identity);
@@ -56,6 +79,7 @@ public class RangeAttack : MonoBehaviour
 
         projectile.GetComponent<Rigidbody>().AddForce(dir.normalized * 10, ForceMode.Impulse);
         projectile.GetComponent<CollisionDetectionRange>().ra = this;
+        TargetPOS.localPosition = baseTarget;
     }
 
     IEnumerator ResetAttackCooldown()

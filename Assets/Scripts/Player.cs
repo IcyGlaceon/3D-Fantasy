@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -8,7 +9,16 @@ public class Player : MonoBehaviour
     public int health = 0;
     public GameObject interactable;
     public bool canUseAbility = false;
+    public string className = "Default";
 
+    public GameObject playerManager;
+
+    private PlayerInput input;
+
+    private void Awake()
+    {
+        input = GetComponent<PlayerInput>();
+    }
 
     public void OnDeath()
     {
@@ -16,5 +26,9 @@ public class Player : MonoBehaviour
         else money -= 1000;
     }
 
-
+    public void OnSwitch()
+    {
+        playerManager.GetComponent<PlayerManager>().SwapCharacter();
+    }
+    
 }

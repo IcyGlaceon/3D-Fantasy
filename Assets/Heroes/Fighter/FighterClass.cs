@@ -20,7 +20,7 @@ public class FighterClass : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (playerInput.actions["Ability"].IsPressed() && GetComponentInParent<Movement>().controller.velocity == Vector3.zero) Ability();
+        if (playerInput.actions["Ability"].IsPressed() && GetComponentInParent<PlayerMovement>().characterController.velocity == Vector3.zero) Ability();
     }
 
     //current error that happens when moving and trying to place down the strenght object

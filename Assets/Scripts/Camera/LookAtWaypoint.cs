@@ -24,8 +24,5 @@ public class LookAtWaypoint : MonoBehaviour
         transform.InverseTransformVector(position);
 
         transform.LookAt(position);
-
-
-        Debug.Log(waypoint.m_Waypoints[(int)dolly.m_PathPosition].position);
     }
 }

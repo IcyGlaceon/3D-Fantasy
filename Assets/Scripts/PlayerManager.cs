@@ -31,7 +31,7 @@ public class PlayerManager : MonoBehaviour
             character1.SetActive(false);
             character2.SetActive(true);
             gameObject.GetComponent<Player>().className = character2.name;
-            GetComponent<Movement>().controller = character2.GetComponent<CharacterController>();
+            GetComponent<PlayerMovement>().characterController = character2.GetComponent<CharacterController>();
         }
         else if (character2.activeSelf)
         {
@@ -39,7 +39,7 @@ public class PlayerManager : MonoBehaviour
             character2.SetActive(false);
             character1.SetActive(true);
             gameObject.GetComponent<Player>().className = character1.name;
-            GetComponent<Movement>().controller = character1.GetComponent<CharacterController>();
+            GetComponent<PlayerMovement>().characterController = character1.GetComponent<CharacterController>();
 
         }
     }

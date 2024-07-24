@@ -10,7 +10,6 @@ TagManager:
   - Strength
   - Fire
   - Explodable
-  - Little Guy
   layers:
   - Default
   - TransparentFX

@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponentInChildren<PlayerInput>(); //GetComponent<PlayerInput>();
         moveAction = playerInput.actions.FindAction("Move");
         jumpAction = playerInput.actions.FindAction("Jump");
     }
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        cameraTransform = Camera.main.transform;
     }
 
     // Update is called once per frame

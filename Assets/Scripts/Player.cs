@@ -21,6 +21,16 @@ public class Player : MonoBehaviour
         input = GetComponent<PlayerInput>();
     }
 
+    private void OnEnable()
+    {
+        GetComponent<PlayerInput>().enabled = true;        
+    }
+
+    private void OnDisable()
+    {
+        GetComponent<PlayerInput>().enabled = false;
+    }
+
     public void OnDeath()
     {
         if (money < 1000) money = 0;

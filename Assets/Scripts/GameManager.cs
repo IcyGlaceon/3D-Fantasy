@@ -55,12 +55,12 @@ public class GameManager : MonoBehaviour
         Debug.Log("Player joined: " + player.playerIndex);
         if (player.user.index > 0)
         {
-            player.GetComponent<Movement>().cameraTransform = mainCamera.transform;
+            player.GetComponent<PlayerMovement>().cameraTransform = mainCamera.transform;
             dropInPos = otherCharacter.transform.position;
             Destroy(otherCharacter);
-            player.GetComponent<Movement>().controller.enabled = false;
+            player.GetComponent<PlayerMovement>().characterController.enabled = false;
             player.transform.position = dropInPos;
-            player.GetComponent<Movement>().controller.enabled = true;
+            player.GetComponent<PlayerMovement>().characterController.enabled = true;
         }
     }
 

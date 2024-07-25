@@ -16,6 +16,7 @@ public class FighterClass : MonoBehaviour
     private void Start()
     {
         playerInput = GetComponentInParent<PlayerInput>();
+        PlayerSwitch.Instance.possibleChracters.Add(gameObject.transform.parent.gameObject.transform);
     }
 
     public void FixedUpdate()

@@ -11,10 +11,12 @@ public class RangerClass : MonoBehaviour
     [SerializeField] Transform spawnPoint;
 
     private PlayerInput playerInput;
+    private GameObject guy;
 
     private void Start()
     {
         playerInput = GetComponentInParent<PlayerInput>();
+        PlayerSwitch.Instance.AddCharacter(gameObject.transform.parent.gameObject.transform);
     }
 
     /* Things Done
@@ -45,13 +47,13 @@ public class RangerClass : MonoBehaviour
         {       
             Instantiate(LittleGuy, spawnPoint.position, Quaternion.identity * spawnPoint.rotation);
 
+            guy = GameObject.FindGameObjectWithTag("Little Guy");
 
-            var guy = GameObject.FindGameObjectWithTag("Little Guy");
-
-            guy.GetComponent<LittleGuyScript>().Swap(GetComponentInParent<Movement>());
+            PlayerSwitch.Instance.AddCharacter(guy.transform);
         }
         else
         {
+            PlayerSwitch.Instance.possibleChracters.Remove(guy.transform);
             Destroy(GameObject.FindGameObjectWithTag("Little Guy"));
         }
     }

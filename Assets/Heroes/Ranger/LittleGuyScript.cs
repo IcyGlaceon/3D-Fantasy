@@ -5,22 +5,17 @@ using UnityEngine.InputSystem;
 
 public class LittleGuyScript : MonoBehaviour
 {
-    Movement movement;
+    PlayerMovement movement;
 
     // Start is called before the first frame update
     void Start()
     {
-        movement = GetComponentInParent<Movement>();
+        movement = GetComponentInParent<PlayerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
-
-    public void Swap(Movement inMovement)
-    {
-        PlayerSwitch.SwitchPlayer(movement, inMovement);
     }
 }

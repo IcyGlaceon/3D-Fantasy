@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,6 +19,16 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         input = GetComponent<PlayerInput>();
+    }
+
+    private void OnEnable()
+    {
+        GetComponent<PlayerInput>().enabled = true;        
+    }
+
+    private void OnDisable()
+    {
+        GetComponent<PlayerInput>().enabled = false;
     }
 
     public void OnDeath()

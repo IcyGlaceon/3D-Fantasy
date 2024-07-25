@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,7 +19,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI player2Money;
     [SerializeField] TextMeshProUGUI player2Name;
 
+    [SerializeField] PlayerInputManager playerInputManager;
+
     [SerializeField] GameObject otherCharacter;
+
+    [SerializeField] Camera mainCamera;
+    Vector3 dropInPos = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -43,8 +50,22 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void OnPlayerJoined(PlayerInput player)
+    {
+        Debug.Log("Player joined: " + player.playerIndex);
+        if (player.user.index > 0)
+        {
+            player.GetComponent<PlayerMovement>().cameraTransform = mainCamera.transform;
+            dropInPos = otherCharacter.transform.position;
+            Destroy(otherCharacter);
+            player.GetComponent<PlayerMovement>().characterController.enabled = false;
+            player.transform.position = dropInPos;
+            player.GetComponent<PlayerMovement>().characterController.enabled = true;
+        }
+    }
+
     public void DropInPlayer()
     {
-        //otherCharacter.gameObject.
+       
     }
 }

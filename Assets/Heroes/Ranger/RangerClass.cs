@@ -44,6 +44,11 @@ public class RangerClass : MonoBehaviour
         if (!GameObject.FindGameObjectWithTag("Little Guy"))
         {       
             Instantiate(LittleGuy, spawnPoint.position, Quaternion.identity * spawnPoint.rotation);
+
+
+            var guy = GameObject.FindGameObjectWithTag("Little Guy");
+
+            guy.GetComponent<LittleGuyScript>().Swap(GetComponentInParent<Movement>());
         }
         else
         {

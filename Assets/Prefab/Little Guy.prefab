@@ -157,7 +157,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 0}
   speed: 5
   turnSmoothTime: 0.1
-  groundCheckTransform: {fileID: 0}
+  groundCheckTransform: {fileID: 3798582822792080928}
   jumpPower: 1
 --- !u!143 &5665184903127515319
 CharacterController:

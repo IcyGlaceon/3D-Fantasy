@@ -23,6 +23,8 @@ public class LookAtWaypoint : MonoBehaviour
 
         transform.InverseTransformVector(position);
 
+        //Debug.Log(position);
+
         transform.LookAt(position);
     }
 }

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Levels/Tutorial Level.meta
 guid: 36161316bd1d18f43bbc7b20b632601b
+========
+guid: dd20a7d764e63304c881a609f14a590e
+>>>>>>>> Eef:Assets/ImportedAssets.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

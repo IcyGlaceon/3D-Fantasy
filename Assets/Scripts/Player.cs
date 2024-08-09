@@ -21,12 +21,12 @@ public class Player : MonoBehaviour
         input = GetComponent<PlayerInput>();
     }
 
-    private void OnEnable()
+    public void OnEnable()
     {
         GetComponent<PlayerInput>().enabled = true;        
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         GetComponent<PlayerInput>().enabled = false;
     }

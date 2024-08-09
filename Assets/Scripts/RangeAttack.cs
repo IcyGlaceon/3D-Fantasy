@@ -62,7 +62,7 @@ public class RangeAttack : MonoBehaviour
     public void SpawnProjectile()
     {
         //Targetting testing
-        Physics.BoxCast(TargetPOS.position, box, transform.forward, out targetHit);
+        Physics.BoxCast(TargetPOS.position, box * 2, transform.forward, out targetHit);
         if (targetHit.collider && targetHit.collider.CompareTag("Breakable"))
         {
             TargetPOS.position = targetHit.transform.position;

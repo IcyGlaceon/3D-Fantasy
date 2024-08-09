@@ -29,7 +29,7 @@ public class PlayerSwitch : MonoBehaviour
         {
             character = possibleChracters[0];
         }
-        Swap();
+        //Swap();
     }
 
     void Update()

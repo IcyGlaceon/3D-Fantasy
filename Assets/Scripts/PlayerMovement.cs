@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInput playerInput;
     InputAction moveAction;
     InputAction jumpAction;
+    public Animator animator;
 
     [Header("Player Movement")]
     public CharacterController characterController;
@@ -44,10 +45,14 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
         JumpPlayer(moveDirection);
         
-        MovePlayer(moveDirection);
+        MovePlayer(moveDirection); 
+        
 
         velocity.y += Physics.gravity.y * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
+
+        animator = GetComponentInChildren<Animator>();
+        animator.SetFloat("Speed", 1);
     }
 
     private void MovePlayer(Vector3 moveDirection)
@@ -93,5 +98,10 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpPower * -4 * Physics.gravity.y);
             
         }
+    }
+
+    private void AnimatePlayer()
+    {
+        
     }
 }

@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -21,10 +22,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] PlayerInputManager playerInputManager;
 
-    [SerializeField] GameObject otherCharacter;
+    //[SerializeField] GameObject otherCharacter;
+
+    [SerializeField] CinemachineTargetGroup targetGroup;
 
     [SerializeField] Camera mainCamera;
-    Vector3 dropInPos = Vector3.zero;
+    [SerializeField] Vector3 dropInPos;
 
     // Start is called before the first frame update
     void Start()
@@ -55,13 +58,15 @@ public class GameManager : MonoBehaviour
         Debug.Log("Player joined: " + player.playerIndex);
         if (player.user.index > 0)
         {
+        }
             player.GetComponent<PlayerMovement>().cameraTransform = mainCamera.transform;
-            dropInPos = otherCharacter.transform.position;
-            Destroy(otherCharacter);
+            //dropInPos = otherCharacter.transform.position;
+            //Destroy(otherCharacter);
             player.GetComponent<PlayerMovement>().characterController.enabled = false;
             player.transform.position = dropInPos;
             player.GetComponent<PlayerMovement>().characterController.enabled = true;
-        }
+            targetGroup.AddMember(player.gameObject.transform, 1, 1);
+            //Debug.Log(player.transform);
     }
 
     public void DropInPlayer()

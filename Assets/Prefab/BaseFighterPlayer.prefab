@@ -334,9 +334,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1b9e7102214834bb7c375b458471e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   characterController: {fileID: 8550842907144162741}
   cameraTransform: {fileID: 0}
-  speed: 40
+  speed: 5
   turnSmoothTime: 0.1
   groundCheckTransform: {fileID: 1463104601018484357}
   jumpPower: 1
@@ -356,6 +357,8 @@ MonoBehaviour:
   health: 0
   interactable: {fileID: 0}
   canUseAbility: 0
+  className: Default
+  playerManager: {fileID: 0}
 --- !u!136 &6483497688690724969
 CapsuleCollider:
   m_ObjectHideFlags: 0

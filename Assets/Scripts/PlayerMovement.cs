@@ -51,10 +51,8 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += Physics.gravity.y * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
 
-        //animator = GetComponentInChildren<Animator>();
-        animator.SetFloat("Speed", velocity.normalized.x);
-
-        Debug.Log(animator.GetFloat("Speed"));
+        animator = GetComponentInChildren<Animator>();
+        //animator.SetFloat("Speed", 1);
     }
 
     private void MovePlayer(Vector3 moveDirection)

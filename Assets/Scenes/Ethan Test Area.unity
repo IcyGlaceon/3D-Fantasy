@@ -236,6 +236,7 @@ MonoBehaviour:
   playerMoney: {fileID: 1948299047}
   playerIcon: {fileID: 1302546057}
   playerCharacter: {fileID: 1695013271534719003}
+  playerName: {fileID: 0}
 --- !u!114 &768522211 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3286389075592889419, guid: 3c971f641b8647049a3ffbfac0eaa4fa, type: 3}
@@ -979,6 +980,8 @@ MonoBehaviour:
   health: 0
   interactable: {fileID: 0}
   canUseAbility: 0
+  className: Default
+  playerManager: {fileID: 0}
 --- !u!114 &1787131129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1025,8 +1028,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334ed44268d3b2c46bdc53071b1fdc13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ma: {fileID: 2018736365}
   hitParticle: {fileID: 0}
+  ma: {fileID: 2018736365}
+  fire: 0
 --- !u!65 &2018736363
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1898,6 +1902,8 @@ MonoBehaviour:
   health: 5
   interactable: {fileID: 0}
   canUseAbility: 0
+  className: Default
+  playerManager: {fileID: 0}
 --- !u!23 &5922608759062014891
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2092,8 +2098,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334ed44268d3b2c46bdc53071b1fdc13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ma: {fileID: 1704735927891116051}
   hitParticle: {fileID: 0}
+  ma: {fileID: 1704735927891116051}
+  fire: 0
 --- !u!1 &8502204182831940780
 GameObject:
   m_ObjectHideFlags: 0

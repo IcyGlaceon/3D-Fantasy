@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         characterController.Move(velocity * Time.deltaTime);
 
         animator = GetComponentInChildren<Animator>();
-        animator.SetFloat("Speed", 1);
+        //animator.SetFloat("Speed", 1);
     }
 
     private void MovePlayer(Vector3 moveDirection)

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -9,6 +10,14 @@ public class EnemyAI : MonoBehaviour
     public int CurrentHealth;
 
     [SerializeField] int MoneyDrop;
+    [SerializeField] float DeathTimer = 3f;
+
+    [SerializeField] GameObject hitbox;
+
+    NavMeshAgent agent;
+
+    private Animator animator;
+    private Rigidbody rb;
 
     private List<GameObject> players;
     private GameObject currentPlayer;
@@ -20,7 +29,8 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        characterController = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
+        agent = GetComponentInParent<NavMeshAgent>();
         players = GameObject.FindGameObjectsWithTag("Player").ToList();
         currentPlayer = players[0];
         CurrentHealth = MaxHealth;
@@ -29,15 +39,11 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isInterupted)
-        {
-            Vector3 direction = currentPlayer.transform.position - gameObject.transform.position;
-            characterController.Move(direction * Time.deltaTime);
-        }
+        animator.SetFloat("Speed", agent.velocity.magnitude);
         if (CurrentHealth <= 0)
         {
-            isInterupted = true;
-            Death();
+            agent.updatePosition = false;
+            OnDead();
         }
     }
 
@@ -51,6 +57,7 @@ public class EnemyAI : MonoBehaviour
             {
                 minDist = distance;
                 currentPlayer = player;
+                agent.destination = currentPlayer.transform.position;
             }
         }
     }
@@ -59,23 +66,40 @@ public class EnemyAI : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //StartCoroutine("Attack");
             Attack();
         }
     }
 
     void Attack()
     {
-        isInterupted = true;
+        agent.updatePosition = false;
         Debug.Log("Attacked");
-        isInterupted = false;
-        //yield return null;
+        animator.SetTrigger("Attack");
+        agent.updatePosition = true;
+
+    }
+
+    void OnDead()
+    {
+        Debug.Log("Goober has perished");
+        animator.SetTrigger("IsDead");
+        Invoke("Death", DeathTimer);
+        
     }
 
     void Death()
     {
-        Debug.Log("Goober has perished");
         Destroy(gameObject);
     }
+
+    public void OnAttack()
+    {
+        hitbox.GetComponent<EnemyHitBox>().OnAttack();
+    }
+    
+    //public void AttackEnd()
+    //{
+        
+    //}
 
 }

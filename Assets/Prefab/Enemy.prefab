@@ -118,9 +118,9 @@ GameObject:
   - component: {fileID: 870177320973231832}
   - component: {fileID: 1965894875649835388}
   - component: {fileID: 6320594251141316083}
-  - component: {fileID: 1935013112603119137}
-  - component: {fileID: 8323879642492284839}
   - component: {fileID: 6168705946121526967}
+  - component: {fileID: 8944164418497131976}
+  - component: {fileID: 1501736957332026209}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -244,7 +244,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &1935013112603119137
+--- !u!135 &6168705946121526967
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3928641907592920811}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.1674888
+  m_Center: {x: 0, y: 0.048828125, z: 0.11866069}
+--- !u!114 &8944164418497131976
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -259,7 +280,7 @@ MonoBehaviour:
   MaxHealth: 0
   CurrentHealth: 0
   MoneyDrop: 0
---- !u!143 &8323879642492284839
+--- !u!143 &1501736957332026209
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -285,24 +306,3 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &6168705946121526967
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3928641907592920811}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.1674888
-  m_Center: {x: 0, y: 0.048828125, z: 0.11866069}

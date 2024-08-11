@@ -23,6 +23,7 @@ public class EnemyAI : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         players = GameObject.FindGameObjectsWithTag("Player").ToList();
         currentPlayer = players[0];
+        CurrentHealth = MaxHealth;
     }
 
     // Update is called once per frame

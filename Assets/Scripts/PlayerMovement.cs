@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject groundCheckTransform;
     public float jumpPower = 1f;
     private Vector3 velocity;
+    public float gravity = 1f;
 
     private void Awake()
     {
@@ -49,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (inputVector == Vector2.zero) animator.SetBool("IsWalking", false);
 
-        velocity.y += Physics.gravity.y * Time.deltaTime;
+        velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
     }
 
@@ -99,10 +100,5 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpPower * -4 * Physics.gravity.y);
             
         }
-    }
-
-    private void AnimatePlayer()
-    {
-        
     }
 }

@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void JumpPlayer(Vector3 direction)
     {
-        Debug.Log(Physics.Raycast(groundCheckTransform.transform.position, Vector3.down, 0.1f));
+        //Debug.Log(Physics.Raycast(groundCheckTransform.transform.position, Vector3.down, 0.1f));    
         if (jumpAction.IsPressed() && Physics.Raycast(groundCheckTransform.transform.position, Vector3.down, 0.1f))
         {           
             Debug.Log("AH");

@@ -17,7 +17,6 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent agent;
 
     private Animator animator;
-    private Rigidbody rb;
 
     private List<GameObject> players;
     private GameObject currentPlayer;

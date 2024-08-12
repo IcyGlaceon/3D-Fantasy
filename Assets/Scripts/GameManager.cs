@@ -50,7 +50,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        player1Health.text = player1.health.ToString();
+        player1Money.text = player1.money.ToString();
     }
 
     public void OnPlayerJoined(PlayerInput player)

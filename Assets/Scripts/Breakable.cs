@@ -17,9 +17,9 @@ public class Breakable : MonoBehaviour
         Debug.Log(spawnHealth);
         if (dropHealth && spawnHealth >= 0.75)
         {
-            Instantiate(health);
+            Instantiate(health, gameObject.transform);
         }
-        Instantiate(money);
+        Instantiate(money, gameObject.transform.position, gameObject.transform.rotation);
         Destroy(gameObject);
     }
 

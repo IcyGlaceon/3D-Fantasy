@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropHealth: 1
   value: 100
-  health: {fileID: 0}
+  health: {fileID: 2116341061413521175, guid: 2dcc10a6648ff5340832430ffd4fffd9, type: 3}
   money: {fileID: 5303650027844187918, guid: b92b04ec99684b2429218261dfdca902, type: 3}
 --- !u!65 &558836772808907445
 BoxCollider:

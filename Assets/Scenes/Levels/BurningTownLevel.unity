@@ -1006,6 +1006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HintText: This is a test hint. bozo
+  hintDelay: 0
   hintGUI: {fileID: 1006528267}
 --- !u!65 &1746193544
 BoxCollider:

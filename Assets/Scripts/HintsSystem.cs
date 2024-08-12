@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using TMPro;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class HintsSystem : MonoBehaviour
 {
     [TextArea(10, 20)]
     [SerializeField] string HintText;
+    [SerializeField] float hintDelay;
     [SerializeField] TextMeshProUGUI hintGUI;
 
     private bool activated = false;
@@ -21,7 +23,7 @@ public class HintsSystem : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Invoke("RemoveText", 3f);
+        Invoke("RemoveText", hintDelay);
     }
 
     private void RemoveText()

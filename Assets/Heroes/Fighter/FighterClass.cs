@@ -9,6 +9,8 @@ public class FighterClass : MonoBehaviour
     public bool strengthAbility = false;
     public bool strengthHolding = false; //checks if the player is holding a strength object
 
+    [SerializeField] private float forceMagnitude;
+
     public GameObject strengthObj;
 
     private PlayerInput playerInput;
@@ -61,6 +63,20 @@ public class FighterClass : MonoBehaviour
         {
             strengthObj.transform.parent.SetParent(null);
             strengthHolding = false;
+        }
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        Rigidbody rb = hit.collider.attachedRigidbody;
+
+        if(rb != null)
+        {
+            Vector3 forceDirection = hit.gameObject.transform.position - transform.position;
+            forceDirection.y = 0;
+            forceDirection.Normalize();
+
+            rb.AddForceAtPosition(forceDirection * forceMagnitude, transform.position, ForceMode.Impulse);
         }
     }
 }

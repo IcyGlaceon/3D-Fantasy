@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2365215821177709835}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -1.492, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 3028394250207369175}
   - component: {fileID: 7062657513271174066}
   - component: {fileID: 3095278170491573566}
+  - component: {fileID: 1995425895044452407}
   - component: {fileID: 5123447816409565126}
   - component: {fileID: 6752112963132452442}
   - component: {fileID: 3204542722740148510}
@@ -358,7 +359,7 @@ MonoBehaviour:
   speed: 6
   turnSmoothTime: 0.1
   groundCheckTransform: {fileID: 2365215821177709835}
-  jumpPower: 1
+  jumpPower: 2
 --- !u!114 &3095278170491573566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,11 +373,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: 0
-  health: 0
+  health: 100
   interactable: {fileID: 0}
   canUseAbility: 0
   className: Default
   playerManager: {fileID: 0}
+--- !u!114 &1995425895044452407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5558997341254077150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d964ab53723e15419c95a87ecc1a781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldAbility: 0
+  strengthAbility: 0
+  strengthHolding: 0
+  forceMagnitude: 1
+  strengthObj: {fileID: 0}
 --- !u!136 &5123447816409565126
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -556,6 +574,7 @@ MonoBehaviour:
   shieldAbility: 0
   strengthAbility: 0
   strengthHolding: 0
+  forceMagnitude: 0
   strengthObj: {fileID: 0}
 --- !u!114 &2065098709973817680
 MonoBehaviour:

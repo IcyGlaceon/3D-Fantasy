@@ -12,6 +12,8 @@ public class MeleeAttack : MonoBehaviour
 
     private PlayerInput playerInput;
 
+    public Animator anim;
+
     // Audio Sources
     public AudioClip AttackSound;
 
@@ -32,8 +34,7 @@ public class MeleeAttack : MonoBehaviour
     {
         IsAttacking = true;
         CanAttack = false;
-        Animator anim = Weapon.GetComponent<Animator>();
-
+        
         anim.SetTrigger("Attack");
 
         AudioSource ac = GetComponent<AudioSource>();

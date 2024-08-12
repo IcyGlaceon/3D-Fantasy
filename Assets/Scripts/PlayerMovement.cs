@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Player Movement")]
     public CharacterController characterController;
-    public Transform cameraTransform;
+    [HideInInspector]public Transform cameraTransform;
     public float speed = 5.0f;
 
     [Header("Player Rotate")] 
@@ -45,16 +45,12 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
         JumpPlayer(moveDirection);
         
-        MovePlayer(moveDirection); 
-        
+        MovePlayer(moveDirection);
+
+        if (inputVector == Vector2.zero) animator.SetBool("IsWalking", false);
 
         velocity.y += Physics.gravity.y * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
-
-        //animator = GetComponentInChildren<Animator>();
-        //animator.SetFloat("Speed", velocity.normalized.x);
-
-        //Debug.Log(animator.GetFloat("Speed"));
     }
 
     private void MovePlayer(Vector3 moveDirection)
@@ -72,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 direction = (cameraForward * moveDirection.z + cameraRight * moveDirection.x).normalized;
             RotatePlayer(direction);
+            animator.SetBool("IsWalking", true);
             characterController.Move(direction * speed * Time.deltaTime);
         }
     }
@@ -95,8 +92,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void JumpPlayer(Vector3 direction)
     {
+        Debug.Log(Physics.Raycast(groundCheckTransform.transform.position, Vector3.down, 0.1f));
         if (jumpAction.IsPressed() && Physics.Raycast(groundCheckTransform.transform.position, Vector3.down, 0.1f))
         {           
+            Debug.Log("AH");
             velocity.y = Mathf.Sqrt(jumpPower * -4 * Physics.gravity.y);
             
         }

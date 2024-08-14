@@ -81,7 +81,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FadeDistance: 0.5
+    - _FadeDistance: 0.55
     - _FoamAmount: 0.25
     - _FoamDepth: 0.5
     - _FoamDirection: 0
@@ -112,7 +112,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _WaterClearness: 0.3
-    - _WaterDepth: 5
+    - _WaterDepth: 6.82
     - _WaveAmplitude: 0.25
     - _WaveDirection: 0
     - _WaveFrequency: 1
@@ -122,8 +122,8 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorDeep: {r: 0.65, g: 0.9, b: 1, a: 1}
-    - _ColorShallow: {r: 0.34999996, g: 0.6, b: 0.75, a: 0.8}
+    - _ColorDeep: {r: 0.46279097, g: 0.6971376, b: 0.78867924, a: 1}
+    - _ColorShallow: {r: 0.08298327, g: 0.27952796, b: 0.3962264, a: 0.8}
     - _CrestColor: {r: 1, g: 1, b: 1, a: 0.9}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}

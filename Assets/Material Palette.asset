@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f1ca63a91b17724bbd99c8fa67e0180, type: 3}
-  m_Name: Default Material Palette
+  m_Name: Material Palette
   m_EditorClassIdentifier: 
   array:
-  - {fileID: 2100000, guid: 84336f41e7e2021428ec5110e8fb60b6, type: 2}
+  - {fileID: 2100000, guid: 65111b8973b233e4785f5a3f0daf35a6, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

@@ -2315,7 +2315,7 @@ GameObject:
   - component: {fileID: 448079982}
   - component: {fileID: 448079981}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Front_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2753,12 +2753,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448079980}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.551, y: 0.546, z: -60.779}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.553713, y: 0.046000004, z: -58.245384}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1230641138}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &457304698
 GameObject:
@@ -5845,7 +5845,7 @@ GameObject:
   - component: {fileID: 1001023588}
   - component: {fileID: 1001023587}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5931,12 +5931,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001023586}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -60.6, y: -0.3, z: 38.300003}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -57.60271, y: -0.8, z: 40.83362}
   m_LocalScale: {x: 10.303812, y: 10, z: 26.00244}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1230641138}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1002043836
 PrefabInstance:
@@ -7110,6 +7110,7 @@ Transform:
   m_Children:
   - {fileID: 2008531756}
   - {fileID: 1107834538}
+  - {fileID: 448079985}
   - {fileID: 650140412}
   - {fileID: 857162791}
   - {fileID: 1450622401}
@@ -7208,6 +7209,7 @@ Transform:
   - {fileID: 743821361}
   - {fileID: 105557673}
   - {fileID: 1597041228}
+  - {fileID: 1001023590}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1256637676
@@ -13050,5 +13052,3 @@ SceneRoots:
   - {fileID: 1030824169}
   - {fileID: 874290761}
   - {fileID: 1230641138}
-  - {fileID: 1001023590}
-  - {fileID: 448079985}

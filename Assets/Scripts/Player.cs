@@ -18,17 +18,17 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        input = GetComponent<PlayerInput>();
+        //input = GetComponent<PlayerInput>();
     }
 
     public void OnEnable()
     {
-        GetComponent<PlayerInput>().enabled = true;        
+        //GetComponent<PlayerInput>().enabled = true;        
     }
 
     public void OnDisable()
     {
-        GetComponent<PlayerInput>().enabled = false;
+        //GetComponent<PlayerInput>().enabled = false;
     }
 
     public void OnDeath()
@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
 
     public void OnSwitch()
     {
-        playerManager.GetComponent<PlayerManager>().SwapCharacter();
+        //playerManager.GetComponent<PlayerManager>().SwapCharacter();
     }
     
 }

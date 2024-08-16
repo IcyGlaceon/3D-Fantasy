@@ -63,7 +63,7 @@ public class RangeAttack : MonoBehaviour
     {
         //Targetting testing
         Physics.BoxCast(TargetPOS.position, box * 2, transform.forward, out targetHit);
-        if (targetHit.collider && targetHit.collider.CompareTag("Breakable"))
+        if (targetHit.collider && (targetHit.collider.CompareTag("Breakable") || targetHit.collider.CompareTag("Breakable")))
         {
             TargetPOS.position = targetHit.transform.position;
             Debug.Log("It hit: " + targetHit.collider.gameObject.name);

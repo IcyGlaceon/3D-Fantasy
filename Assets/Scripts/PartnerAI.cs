@@ -14,14 +14,14 @@ public class PartnerAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //player = FindObjectOfType<PlayerController>().currentCharacter;
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        direction = player.GetComponent<PlayerManager>().currentCharacter.transform.position - gameObject.transform.position;
+        direction = player.transform.position - gameObject.transform.position;
 
         direction *= speed;
 

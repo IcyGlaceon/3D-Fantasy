@@ -15,8 +15,8 @@ public class RangerClass : MonoBehaviour
 
     private void Start()
     {
-        playerInput = GetComponentInParent<PlayerInput>();
-        PlayerSwitch.Instance.AddCharacter(gameObject.transform.parent.gameObject.transform);
+        //playerInput = GetComponentInParent<PlayerInput>();
+        //PlayerSwitch.Instance.AddCharacter(gameObject.transform.parent.gameObject.transform);
     }
 
     /* Things Done
@@ -31,29 +31,33 @@ public class RangerClass : MonoBehaviour
 
     void Update()
     {
-        if (LittleGuy != null)
-        {
-            if (playerInput.actions["Ability"].WasPressedThisFrame())
-            {
-                SpawnThatGuy();
-            }
-        }
+        //if (LittleGuy != null)
+        //{
+        //    if (playerInput.actions["Ability"].WasPressedThisFrame())
+        //    {
+        //        SpawnThatGuy();
+        //    }
+        //}
 
     }
 
-    void SpawnThatGuy()
+    public void SpawnThatGuy(PlayerController controllingPlayer, int currentIndex)
     {
         if (!GameObject.FindGameObjectWithTag("Little Guy"))
         {       
             Instantiate(LittleGuy, spawnPoint.position, Quaternion.identity * spawnPoint.rotation);
-
             guy = GameObject.FindGameObjectWithTag("Little Guy");
+            controllingPlayer.swapDisabled = true;
+            controllingPlayer.currentCharacter = guy;
+            
 
-            PlayerSwitch.Instance.AddCharacter(guy.transform);
+            //PlayerSwitch.Instance.AddCharacter(guy.transform);
         }
         else
         {
-            PlayerSwitch.Instance.possibleChracters.Remove(guy.transform);
+            //PlayerSwitch.Instance.possibleChracters.Remove(guy.transform);
+            controllingPlayer.currentCharacter = controllingPlayer.availableCharacters[currentIndex];
+            controllingPlayer.swapDisabled = false;
             Destroy(GameObject.FindGameObjectWithTag("Little Guy"));
         }
     }

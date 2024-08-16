@@ -24,10 +24,7 @@ public class MeleeAttack : MonoBehaviour
 
     void Update()
     {
-        if (playerInput.actions["Fire"].IsPressed() && CanAttack)
-        {
-            Attack();
-        }
+        
     }
 
     public void Attack()

@@ -60,14 +60,14 @@ public class GameManager : MonoBehaviour
         if (player.user.index > 0)
         {
         }
-            player.GetComponent<PlayerMovement>().cameraTransform = mainCamera.transform;
-            //dropInPos = otherCharacter.transform.position;
-            //Destroy(otherCharacter);
-            player.GetComponent<PlayerMovement>().characterController.enabled = false;
-            player.transform.position = dropInPos;
-            player.GetComponent<PlayerMovement>().characterController.enabled = true;
-            targetGroup.AddMember(player.gameObject.transform, 1, 1);
-            //Debug.Log(player.transform);
+            //player.GetComponent<PlayerMovement>().cameraTransform = mainCamera.transform;
+            ////dropInPos = otherCharacter.transform.position;
+            ////Destroy(otherCharacter);
+            //player.GetComponent<PlayerMovement>().characterController.enabled = false;
+            //player.transform.position = dropInPos;
+            //player.GetComponent<PlayerMovement>().characterController.enabled = true;
+            //targetGroup.AddMember(player.gameObject.transform, 1, 1);
+            ////Debug.Log(player.transform);
     }
 
     public void DropInPlayer()

@@ -23,29 +23,30 @@ public class FighterClass : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (playerInput.actions["Ability"].IsPressed() && GetComponentInParent<PlayerMovement>().characterController.velocity == Vector3.zero) Ability();
+        //if (playerInput.actions["Ability"].IsPressed() && GetComponentInParent<PlayerMovement>().characterController.velocity == Vector3.zero) Ability();
     }
 
     //current error that happens when moving and trying to place down the strenght object
 
     public void Ability()
     {
-        GameObject currentInteractable = GetComponentInParent<Player>().interactable;
-        bool CanAbility = GetComponentInParent<Player>().canUseAbility;
-        Debug.Log("Pressed the button");
-        if (strengthAbility)
+        if (GetComponentInParent<PlayerMovement>().characterController.velocity == Vector3.zero)
         {
-            
-            Strength(CanAbility, strengthObj);
+            GameObject currentInteractable = GetComponentInParent<Player>().interactable;
+            bool CanAbility = GetComponentInParent<Player>().canUseAbility;
+            Debug.Log("Pressed the button");
+            if (strengthAbility)
+            {
+                Strength(CanAbility, strengthObj);
+            }
         }
+        /* if (shieldAbility)
+         {
+             //pivot in place
 
-       /* if (shieldAbility)
-        {
-            //pivot in place
 
+         }*/
 
-        }*/
-        
     }
 
 
@@ -70,7 +71,7 @@ public class FighterClass : MonoBehaviour
     {
         Rigidbody rb = hit.collider.attachedRigidbody;
 
-        if(rb != null)
+        if (rb != null)
         {
             Vector3 forceDirection = hit.gameObject.transform.position - transform.position;
             forceDirection.y = 0;

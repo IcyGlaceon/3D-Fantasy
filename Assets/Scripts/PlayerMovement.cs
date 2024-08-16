@@ -12,10 +12,11 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Player Movement")]
     public CharacterController characterController;
-    [HideInInspector]public Transform cameraTransform;
+    [HideInInspector] public Transform cameraTransform;
     public float speed = 5.0f;
+    public Vector2 inputVector = Vector2.zero;
 
-    [Header("Player Rotate")] 
+    [Header("Player Rotate")]
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
@@ -27,9 +28,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        playerInput = GetComponentInChildren<PlayerInput>(); //GetComponent<PlayerInput>();
-        moveAction = playerInput.actions.FindAction("Move");
-        jumpAction = playerInput.actions.FindAction("Jump");
+        //playerInput = GetComponentInChildren<PlayerInput>(); //GetComponent<PlayerInput>();
+        //moveAction = playerInput.actions.FindAction("Move");
+        //jumpAction = playerInput.actions.FindAction("Jump");
     }
 
 
@@ -42,13 +43,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 inputVector = moveAction.ReadValue<Vector2>();
         Vector3 moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
-        JumpPlayer(moveDirection);
-        
+        //JumpPlayer(moveDirection);
+
         MovePlayer(moveDirection);
 
-        if (inputVector == Vector2.zero) animator.SetBool("IsWalking", false);
+        if (inputVector == Vector2.zero && animator) animator.SetBool("IsWalking", false);
 
         velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer(Vector3 moveDirection)
     {
-        if(moveDirection.sqrMagnitude > 0.01f)
+        if (moveDirection.sqrMagnitude > 0.01f)
         {
             Vector3 cameraForward = cameraTransform.forward;
             Vector3 cameraRight = cameraTransform.right;
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 direction = (cameraForward * moveDirection.z + cameraRight * moveDirection.x).normalized;
             RotatePlayer(direction);
-            animator.SetBool("IsWalking", true);
+            if (animator) animator.SetBool("IsWalking", true);
             characterController.Move(direction * speed * Time.deltaTime);
         }
     }
@@ -91,14 +91,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void JumpPlayer(Vector3 direction)
+    public void JumpPlayer()
     {
-        //Debug.Log(Physics.Raycast(groundCheckTransform.transform.position, Vector3.down, 0.1f));    
-        if (jumpAction.IsPressed() && Physics.Raycast(groundCheckTransform.transform.position, Vector3.down, 0.1f))
-        {           
-            Debug.Log("AH");
+        if (Physics.Raycast(groundCheckTransform.transform.position, Vector3.down, 0.1f))
+        {
             velocity.y = Mathf.Sqrt(jumpPower * -4 * Physics.gravity.y);
-            
         }
     }
 }

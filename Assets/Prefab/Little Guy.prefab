@@ -153,12 +153,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1b9e7102214834bb7c375b458471e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   characterController: {fileID: 5665184903127515319}
   cameraTransform: {fileID: 0}
   speed: 5
+  inputVector: {x: 0, y: 0}
   turnSmoothTime: 0.1
   groundCheckTransform: {fileID: 3798582822792080928}
   jumpPower: 1
+  gravity: -13
 --- !u!143 &5665184903127515319
 CharacterController:
   m_ObjectHideFlags: 0
@@ -210,7 +213,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7507075934781605360}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 

@@ -315,6 +315,17 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Switch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""26ef7336-29dd-42c8-80b5-2ec522af1f0d"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },

@@ -26,6 +26,17 @@ public class PlayerController : MonoBehaviour
         currentCharacter.GetComponent<PartnerAI>().enabled = false;
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        if (currentCharacter.GetComponent<Player>().health <= 0 && !swapDisabled)
+        {
+            swapDisabled = true;
+            currentCharacter.SetActive(false);
+            Invoke("EnablePlayer", 1f);
+        }
+
+    }
     void OnMove(InputValue direction)
     {
         currentCharacter.GetComponent<PlayerMovement>().inputVector = direction.Get<Vector2>();
@@ -51,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
     void OnFire()
     {
-        if (currentCharacter.GetComponentInChildren<MeleeAttack>())
+        if (currentCharacter.GetComponentInChildren<MeleeAttack>() && !swapDisabled)
         {
             currentCharacter.GetComponentInChildren<MeleeAttack>().Attack();
         }
@@ -95,9 +106,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void EnablePlayer()
     {
-
+        Debug.Log("Hit");
+        currentCharacter.GetComponent<Player>().health = currentCharacter.GetComponent<Player>().maxHealth;
+        currentCharacter.SetActive(true);
+        swapDisabled = false;
     }
+
 }

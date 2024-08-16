@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public int money = 0;
+    public int maxHealth = 100;
     public int health = 0;
     public GameObject interactable;
     public bool canUseAbility = false;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        health = maxHealth;
         //input = GetComponent<PlayerInput>();
     }
 

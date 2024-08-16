@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,9 @@ public class AreaTransition : MonoBehaviour
 
     [SerializeField] GameObject trigger;
     [SerializeField] GameObject playerPos;
-    [SerializeField] GameObject cameraPos;
+    [SerializeField] CinemachineSmoothPath dollyTrack;
+
+    [SerializeField] CinemachineVirtualCamera virtualCamera;
 
     private List<GameObject> players;
 
@@ -37,7 +40,9 @@ public class AreaTransition : MonoBehaviour
             player.gameObject.transform.position = playerPos.transform.position;
         }
         Invoke("SetControl", 0.1f);
-        Camera.main.transform.position = cameraPos.transform.position;
+
+        virtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>().m_Path = dollyTrack;
+
         areaA.SetActive(false);
     }
 

@@ -36,22 +36,42 @@ public class AreaTransition : MonoBehaviour
         foreach (GameObject player in players)
         {
             Debug.Log(playerPos.transform.position);
-            player.GetComponent<PlayerMovement>().enabled = false;
-            player.gameObject.transform.position = playerPos.transform.position;
+            //player.GetComponent<PlayerMovement>().enabled = false;
+            //player.GetComponent<PartnerAI>().enabled = false;
+
+            //if (player.GetComponent<PlayerMovement>().enabled)
+            //{
+            //    player.GetComponent<PlayerMovement>().enabled = false;
+            //    StartCoroutine(SetControl(player));
+
+            //}
+            //if (player.GetComponent<PartnerAI>().enabled)
+            //{
+            //    player.GetComponent<PartnerAI>().enabled = false;
+            //    StartCoroutine(SetAI(player));
+            //}
+            player.SetActive(false);
+            player.transform.position = playerPos.transform.position;
+            player.SetActive(true);
+
         }
-        Invoke("SetControl", 0.1f);
+        //Invoke("SetControl", 0.1f);
 
         virtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>().m_Path = dollyTrack;
 
         areaA.SetActive(false);
     }
 
-    private void SetControl()
+    private IEnumerator SetControl(GameObject player)
     {
-        foreach (GameObject player in players)
-        {
-            player.GetComponent<PlayerMovement>().enabled = true;
-        }
+        player.GetComponent<PlayerMovement>().enabled = true;
+        yield return new WaitForSeconds(1f);
+    }
+
+    private IEnumerator SetAI(GameObject player)
+    {
+        player.GetComponent<PartnerAI>().enabled = true;
+        yield return new WaitForSeconds(1f);
     }
 
 }

@@ -6814,6 +6814,11 @@ PrefabInstance:
       addedObject: {fileID: 346700021}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9eb5d6e0fb92c9946adcae4308035e57, type: 3}
+--- !u!95 &713936613 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6004120198113043592, guid: 881682adaa6cfed4ea1d82aa6e5df7f7, type: 3}
+  m_PrefabInstance: {fileID: 7469405670497456859}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &723698618
 GameObject:
   m_ObjectHideFlags: 0
@@ -9998,6 +10003,11 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!95 &1006330852 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1515233525698902718, guid: 2272a7178853fc445bda9347a50ae553, type: 3}
+  m_PrefabInstance: {fileID: 4241012050096654336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1030824167
 GameObject:
   m_ObjectHideFlags: 0
@@ -18229,6 +18239,7 @@ GameObject:
   - component: {fileID: 2008531754}
   - component: {fileID: 2008531753}
   - component: {fileID: 2008531757}
+  - component: {fileID: 2008531758}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -18353,6 +18364,26 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: f7591a333a8eaa94dae4ca41e173937b, type: 2}
   m_BuildHeightMesh: 0
+--- !u!114 &2008531758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008531752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eeb5dc026fdf4b488bc7ae0138ab719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_StartPoint: {x: 0, y: 0, z: -59.59088}
+  m_EndPoint: {x: 0, y: 0, z: -68.02766}
+  m_Width: 0
+  m_CostModifier: -1
+  m_Bidirectional: 1
+  m_AutoUpdatePosition: 0
+  m_Area: 2
 --- !u!1001 &2011039541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20240,6 +20271,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1058623779}
+    - target: {fileID: 544948442752607035, guid: 2272a7178853fc445bda9347a50ae553, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1006330852}
     - target: {fileID: 2977561502055734402, guid: 2272a7178853fc445bda9347a50ae553, type: 3}
       propertyPath: m_Name
       value: BaseRanger
@@ -20721,7 +20756,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -21170,6 +21205,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 5558997341371250607}
+    - target: {fileID: 9042006070096174715, guid: 881682adaa6cfed4ea1d82aa6e5df7f7, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 713936613}
     - target: {fileID: 9042006070096174715, guid: 881682adaa6cfed4ea1d82aa6e5df7f7, type: 3}
       propertyPath: m_Enabled
       value: 1

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
         FindAvailablePlayer(index);
         currentCharacter.GetComponent<PlayerMovement>().enabled = true;
         currentCharacter.GetComponent<PartnerAI>().enabled = false;
+        currentCharacter.GetComponent<NavMeshAgent>().enabled = false;
     }
 
     // Update is called once per frame
@@ -53,10 +55,12 @@ public class PlayerController : MonoBehaviour
         {
             currentCharacter.GetComponent<PlayerMovement>().enabled = false;
             currentCharacter.GetComponent<PartnerAI>().enabled = true;
+            currentCharacter.GetComponent<NavMeshAgent>().enabled = true;
             NextIndex(index);
             FindAvailablePlayer(index);
             currentCharacter.GetComponent<PlayerMovement>().enabled = true;
             currentCharacter.GetComponent<PartnerAI>().enabled = false;
+            currentCharacter.GetComponent<NavMeshAgent>().enabled = false;
         }
     }
 

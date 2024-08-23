@@ -24,6 +24,7 @@ public class EnemyAI : MonoBehaviour
     private CharacterController characterController;
 
     private bool isInterupted = false;
+    private bool isDead = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -39,9 +40,10 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         animator.SetFloat("Speed", agent.velocity.magnitude);
-        if (CurrentHealth <= 0)
+        if (CurrentHealth <= 0 && !isDead)
         {
             agent.updatePosition = false;
+            isDead = true;
             OnDead();
         }
     }

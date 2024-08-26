@@ -157,7 +157,7 @@ MonoBehaviour:
   AttackCooldown: 1
   IsAttacking: 0
   anim: {fileID: 1515233525698902718}
-  AttackSound: {fileID: 8300000, guid: ebdcc7e363f204146a57d88cf132e235, type: 3}
+  AttackSound: {fileID: 0}
 --- !u!82 &4807403475591076441
 AudioSource:
   m_ObjectHideFlags: 0
@@ -280,10 +280,10 @@ GameObject:
   - component: {fileID: 7539017888425055304}
   - component: {fileID: 4642945518440290266}
   - component: {fileID: 1580268883589344908}
+  - component: {fileID: 4137572939702473981}
   - component: {fileID: 8599620110292597530}
   - component: {fileID: 1238767836930258476}
   - component: {fileID: 544948442752607035}
-  - component: {fileID: 4137572939702473981}
   - component: {fileID: 2356305038163639291}
   m_Layer: 8
   m_Name: BaseRanger
@@ -352,6 +352,20 @@ MonoBehaviour:
   canUseAbility: 0
   className: Default
   playerManager: {fileID: 0}
+--- !u!114 &4137572939702473981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2977561502055734402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4951d4230431ae84e91624f67e25b356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LittleGuy: {fileID: 7507075934781605360, guid: 061f9ae909c8ca7408be9ae826061a16, type: 3}
+  spawnPoint: {fileID: 7518003564358632890}
 --- !u!136 &8599620110292597530
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -416,20 +430,7 @@ MonoBehaviour:
   player: {fileID: 0}
   characterController: {fileID: 1238767836930258476}
   agent: {fileID: 2356305038163639291}
---- !u!114 &4137572939702473981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2977561502055734402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4951d4230431ae84e91624f67e25b356, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LittleGuy: {fileID: 7507075934781605360, guid: 061f9ae909c8ca7408be9ae826061a16, type: 3}
-  spawnPoint: {fileID: 7518003564358632890}
+  animator: {fileID: 0}
 --- !u!195 &2356305038163639291
 NavMeshAgent:
   m_ObjectHideFlags: 0

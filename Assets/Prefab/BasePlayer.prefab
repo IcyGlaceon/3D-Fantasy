@@ -188,7 +188,7 @@ MonoBehaviour:
   AttackCooldown: 1
   IsAttacking: 0
   anim: {fileID: 6004120198113043592}
-  AttackSound: {fileID: 8300000, guid: ebdcc7e363f204146a57d88cf132e235, type: 3}
+  AttackSound: {fileID: 0}
 --- !u!82 &2735905015771915851
 AudioSource:
   m_ObjectHideFlags: 0
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 5123447816409565126}
   - component: {fileID: 3204542722740148510}
   - component: {fileID: 9042006070096174715}
-  - component: {fileID: 4548812841728094180}
+  - component: {fileID: 319905361020087704}
   m_Layer: 8
   m_Name: BasePlayer
   m_TagString: Player
@@ -462,8 +462,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   characterController: {fileID: 3204542722740148510}
-  agent: {fileID: 4548812841728094180}
---- !u!195 &4548812841728094180
+  agent: {fileID: 319905361020087704}
+  animator: {fileID: 6004120198113043592}
+--- !u!195 &319905361020087704
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
